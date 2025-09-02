@@ -1,19 +1,6 @@
-import React from 'react';
+import React from "react"
 
-type Doctor = {
-  Treatment: string;
-  visitReason: string;
-  lastVisit: string;
-  Amount: string;
-  Status: "Paid" | "Unpaid";
-};
-
-interface InvoiceTableProps {
-  data: Doctor[];
-  onDelete: (treatment: string) => void;
-}
-
-const InvoiceTable: React.FC<InvoiceTableProps> = ({ data, onDelete }) => {
+const InvoiceTable = ({ data, onDelete }) => {
   return (
     <div className="mt-5">
       <div className="card h-[calc(100vh-235px)] flex flex-col">
@@ -59,16 +46,15 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({ data, onDelete }) => {
                     >
                       <div className="flex flex-col items-center justify-center min-h-[500px]">
                         {/* Your no records SVG */}
-                        <p className="text-[#144A6C] text-2xl mt-4">No Record Found!</p>
+                        <p className="text-[#144A6C] text-2xl mt-4">
+                          No Record Found!
+                        </p>
                       </div>
                     </td>
                   </tr>
                 ) : (
-                  data.map((doctor) => (
-                    <tr
-                      key={doctor.Treatment}
-                      className="hover:bg-gray-50"
-                    >
+                  data.map(doctor => (
+                    <tr key={doctor.Treatment} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-[#475467]">
                         {doctor.Treatment}
                       </td>
@@ -85,13 +71,15 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({ data, onDelete }) => {
                         <span
                           className={`
                             inline-flex px-3 py-1 rounded-full text-xs font-medium
-                            ${doctor.Status === "Paid"
-                              ? "bg-[#F8FFF8] text-[#177606] border border-[#B7EFAB] rounded-sm pl-4 pr-4 pt-2 pb-2"
-                              : ""
+                            ${
+                              doctor.Status === "Paid"
+                                ? "bg-[#F8FFF8] text-[#177606] border border-[#B7EFAB] rounded-sm pl-4 pr-4 pt-2 pb-2"
+                                : ""
                             }
-                            ${doctor.Status === "Unpaid"
-                              ? "bg-[#FFF8F8] text-[#CE2D2D] border border-[#E43F33] rounded-sm pl-4 pr-4 pt-2 pb-2"
-                              : ""
+                            ${
+                              doctor.Status === "Unpaid"
+                                ? "bg-[#FFF8F8] text-[#CE2D2D] border border-[#E43F33] rounded-sm pl-4 pr-4 pt-2 pb-2"
+                                : ""
                             }
                           `}
                         >
@@ -120,7 +108,7 @@ const InvoiceTable: React.FC<InvoiceTableProps> = ({ data, onDelete }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InvoiceTable;
+export default InvoiceTable

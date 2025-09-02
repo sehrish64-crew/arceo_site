@@ -1,0 +1,393 @@
+"use client"
+import { useState, useEffect } from "react"
+import { Listbox } from "@headlessui/react"
+import { ChevronDownIcon, CheckIcon } from "@heroicons/react/20/solid"
+import Singledatepicker from "./Singledatepicker"
+
+export default function DoctorModal({ isOpen, onClose }) {
+  const [ModalAnimation, setModalAnimation] = useState(false)
+
+  // Effect to handle modal animation when isOpen changes
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => setModalAnimation(true), 10)
+    } else {
+      setModalAnimation(false)
+    }
+  }, [isOpen])
+
+  const handleClose = () => {
+    setModalAnimation(false)
+    setTimeout(onClose, 500) // Allow time for animation to complete
+  }
+  const people = [
+    { id: 1, name: "Dentist" },
+    { id: 2, name: "Arlene Mccoy" },
+    { id: 3, name: "Devon Webb" }
+  ]
+  const [selected, setSelected] = useState(people[0])
+
+  const languages = [
+    { id: 1, name: "English" },
+    { id: 2, name: "German" },
+    { id: 3, name: "Spanish" }
+  ]
+  const [languageselected, languagesetSelected] = useState(languages[0])
+  if (!isOpen) return null
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="dialog-title"
+      className="relative z-10"
+    >
+      {/* <div className="fixed inset-0 bg-gradient-to-br from-[#144A6C]/60 to-[#144A6C]/20 backdrop-blur-md transition-opacity" /> */}
+      <div className="fixed inset-0 bg-[#000]/60 backdrop-blur-md transition-opacity overflow-y-auto">
+        <div className="flex items-center justify-center min-h-screen px-4 py-8 text-center">
+          {/* Background overlay */}
+          <div className="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div className="absolute inset-0"></div>
+          </div>
+          {/* Modal panel */}
+          <div
+            className={`inline-block align-bottom bg-white dark:bg-gray-800 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 
+                           sm:align-middle w-full max-w-4xl mx-auto 
+                 ${ModalAnimation ? "scale-100 skew-y-0" : "scale-0 skew-y-6"}
+                 duration-500 ease-out
+               `}
+          >
+            <div className="bg-white  px-4 pt-5 pb-4 sm:p-8 sm:pb-6">
+              <div className="sm:flex sm:items-start">
+                <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
+                  <div className="flex gap-1 border-b border-[#E5E7EB] pb-4 w-100">
+                    <div className="user-icon">
+                      <svg
+                        width={44}
+                        height={44}
+                        viewBox="0 0 44 44"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width={44} height={44} rx={22} fill="#F5FAFA" />
+                        <rect
+                          x="0.5"
+                          y="0.5"
+                          width={43}
+                          height={43}
+                          rx="21.5"
+                          stroke="url(#paint0_linear_90_2603)"
+                          strokeOpacity="0.3"
+                        />
+                        <g clipPath="url(#clip0_90_2603)">
+                          <path
+                            d="M22.0003 24.0833C24.8768 24.0833 27.2087 21.7514 27.2087 18.875C27.2087 15.9985 24.8768 13.6666 22.0003 13.6666C19.1238 13.6666 16.792 15.9985 16.792 18.875C16.792 21.7514 19.1238 24.0833 22.0003 24.0833ZM22.0003 24.0833C17.398 24.0833 13.667 26.8815 13.667 30.3333M22.0003 24.0833C26.6027 24.0833 30.3337 26.8815 30.3337 30.3333"
+                            stroke="#144A6C"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
+                        </g>
+                        <defs>
+                          <linearGradient
+                            id="paint0_linear_90_2603"
+                            x1={22}
+                            y1={0}
+                            x2={22}
+                            y2={44}
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stopColor="white" />
+                            <stop
+                              offset={1}
+                              stopColor="white"
+                              stopOpacity={0}
+                            />
+                          </linearGradient>
+                          <clipPath id="clip0_90_2603">
+                            <rect
+                              width={20}
+                              height={20}
+                              fill="white"
+                              transform="translate(12 12)"
+                            />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div className="flex flex-col">
+                      <h3 className="text-lg font-regular text-[#144A6C] text-start">
+                        Upload Training
+                      </h3>
+                      <span className="text-[#A1A5AA] font-regular">
+                        Provide details to add a new Doctor
+                      </span>
+                    </div>
+                    <hr />
+                  </div>
+                  <div
+                    style={{
+                      maxHeight: "500px",
+                      minHeight: "400px",
+                      overflowY: "auto"
+                    }}
+                  >
+                    <form className="w-full max-w-4xl mx-auto mt-5">
+                      <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-address"
+                          >
+                            Full Name
+                          </label>
+                          <input
+                            className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB] "
+                            id="grid-address"
+                            type="text"
+                          />
+                        </div>
+
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-category"
+                          >
+                            Specialty
+                          </label>
+                          <Listbox value={selected} onChange={setSelected}>
+                            <div className="mt-2 relative">
+                              <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-3 pl-3 pr-10 text-left shadow-sm border border-[#EBEBEB] focus:outline-none focus:ring-1 focus:ring-[#EBEBEB] focus:border-[#EBEBEB] sm:text-sm">
+                                <span className="block truncate">
+                                  {selected.name}
+                                </span>
+                                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                  <ChevronDownIcon
+                                    className="h-5 w-5 text-[#144A6C]"
+                                    aria-hidden="true"
+                                  />
+                                </span>
+                              </Listbox.Button>
+
+                              <Listbox.Options className="absolute z-10 mt-1 max-h-20 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                {people.map(person => (
+                                  <Listbox.Option
+                                    key={person.id}
+                                    value={person}
+                                    className={({ active }) =>
+                                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                        active
+                                          ? "bg-[#144A6C] text-white"
+                                          : "text-gray-900"
+                                      }`
+                                    }
+                                  >
+                                    {({ selected }) => (
+                                      <>
+                                        <span
+                                          className={`block truncate ${
+                                            selected
+                                              ? "font-medium"
+                                              : "font-normal"
+                                          }`}
+                                        >
+                                          {person.name}
+                                        </span>
+                                        {selected && (
+                                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-indigo-600">
+                                            <CheckIcon
+                                              className="h-5 w-5"
+                                              aria-hidden="true"
+                                            />
+                                          </span>
+                                        )}
+                                      </>
+                                    )}
+                                  </Listbox.Option>
+                                ))}
+                              </Listbox.Options>
+                            </div>
+                          </Listbox>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-address"
+                          >
+                            Email Address
+                          </label>
+                          <input
+                            className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB] "
+                            id="grid-address"
+                            type="text"
+                          />
+                        </div>
+
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-address"
+                          >
+                            Phone Number
+                          </label>
+                          <input
+                            className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB] "
+                            id="grid-address"
+                            type="number"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-address"
+                          >
+                            License Number
+                          </label>
+                          <input
+                            className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB] "
+                            id="grid-address"
+                            type="text"
+                          />
+                        </div>
+
+                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-address"
+                          >
+                            License Expiry
+                          </label>
+
+                          <div className="relative">
+                            <Singledatepicker />
+                            <div className="absolute top-5 right-3 text-gray-500 pointer-events-none">
+                              <svg
+                                width={16}
+                                height={18}
+                                viewBox="0 0 16 18"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M1.25 7.5H14.75M5 4.5V1.5M11 4.5V1.5M6.05 16.5H9.95C11.6302 16.5 12.4702 16.5 13.112 16.173C13.6765 15.8854 14.1354 15.4265 14.423 14.862C14.75 14.2202 14.75 13.3802 14.75 11.7V7.8C14.75 6.11984 14.75 5.27976 14.423 4.63803C14.1354 4.07354 13.6765 3.6146 13.112 3.32698C12.4702 3 11.6302 3 9.95 3H6.05C4.36984 3 3.52976 3 2.88803 3.32698C2.32354 3.6146 1.8646 4.07354 1.57698 4.63803C1.25 5.27976 1.25 6.11984 1.25 7.8V11.7C1.25 13.3802 1.25 14.2202 1.57698 14.862C1.8646 15.4265 2.32354 15.8854 2.88803 16.173C3.52976 16.5 4.36984 16.5 6.05 16.5Z"
+                                  stroke="#A1A5AA"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                        <div className="w-full px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-address"
+                          >
+                            Address
+                          </label>
+                          <input
+                            className="mt-2 block w-full shadow-sm text-gray-700 border rounded-lg py-3 pl-3 pr-10 leading-tight focus:outline-none focus:bg-white dark:border-[#EBEBEB] "
+                            id="grid-address"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap -mx-3 mt-2 mb-4">
+                        <div className="w-full px-3 mb-6 md:mb-0 text-start">
+                          <label
+                            className="text-[#757575]"
+                            htmlFor="grid-category"
+                          >
+                            Languages
+                          </label>
+                          <Listbox
+                            value={languageselected}
+                            onChange={languagesetSelected}
+                          >
+                            <div className="mt-2 relative">
+                              <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-3 pl-3 pr-10 text-left shadow-sm border border-[#EBEBEB] focus:outline-none focus:ring-1 focus:ring-[#EBEBEB] focus:border-[#EBEBEB] sm:text-sm">
+                                <span className="block truncate">
+                                  {languageselected.name}
+                                </span>
+                                <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                                  <ChevronDownIcon
+                                    className="h-5 w-5 text-[#144A6C]"
+                                    aria-hidden="true"
+                                  />
+                                </span>
+                              </Listbox.Button>
+
+                              <Listbox.Options className="absolute z-10 mt-1 max-h-20 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                {languages.map(language => (
+                                  <Listbox.Option
+                                    key={language.id}
+                                    value={language}
+                                    className={({ active }) =>
+                                      `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                        active
+                                          ? "bg-[#144A6C] text-white"
+                                          : "text-gray-900"
+                                      }`
+                                    }
+                                  >
+                                    {({ selected }) => (
+                                      <>
+                                        <span
+                                          className={`block truncate ${
+                                            selected
+                                              ? "font-medium"
+                                              : "font-normal"
+                                          }`}
+                                        >
+                                          {language.name}
+                                        </span>
+                                        {selected && (
+                                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-[#144A6C]">
+                                            <CheckIcon
+                                              className="h-5 w-5"
+                                              aria-hidden="true"
+                                            />
+                                          </span>
+                                        )}
+                                      </>
+                                    )}
+                                  </Listbox.Option>
+                                ))}
+                              </Listbox.Options>
+                            </div>
+                          </Listbox>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white  gap-2 py-3 sm:flex sm:flex-row-reverse border-t border-[#E5E7EB] mt-5">
+                <button
+                  type="button"
+                  className="bg-[#144A6C] pl-4 pr-4 py-2 text-white flex items-center space-x-2 rounded-lg transition-colors whitespace-nowrap justify-center text-center"
+                  onClick={handleClose}
+                >
+                  Create
+                </button>
+                <button
+                  type="button"
+                  className="bg-[#fff] pl-4 pr-4 py-2 text-[#144A6C] flex items-center space-x-2 rounded-lg transition-colors whitespace-nowrap justify-center text-center border border-[#EBEBEB]"
+                  onClick={handleClose}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

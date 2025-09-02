@@ -1,0 +1,292 @@
+/* Admin specific styles can be added here */
+
+.custom-light {
+  border-radius: 24px;
+  box-shadow: 0px 4px 10px 0px #0000000A;
+  border: solid 1px #F2F2F2;
+}
+
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  /* Tailwind slate-300 */
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+  /* Tailwind slate-400 */
+}
+
+.set-header {
+  background-color: #CEE5E433 !important;
+}
+
+table {
+  white-space: nowrap;
+}
+
+.card {
+  background-color: #fff;
+  border: solid 1px #F2F2F2;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.swal2-confirm {
+  background-color: rgb(214, 5, 5);
+  color: #fff;
+  border: solid 1px rgb(214, 5, 5);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.swal2-cancel {
+  background-color: #144A6C;
+  color: #fff;
+  border: solid 1px #144A6C;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.button_styles {
+  padding: 9px 29px;
+  gap: 7px;
+
+}
+
+.bg-areas {
+  background: #fff;
+  width: 100%;
+  padding: 20px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 33px;
+
+}
+
+.clip-path-custom-shape {
+  clip-path: polygon(0 0, 88% 0, 99% 100%, 0 99%, 0% 38%);
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 167px !important;
+  border-radius: 8px 8px 0 0;
+  text-align: center;
+}
+
+.css-1xiumhb-MuiPickersLayout-root .MuiPickersLayout-toolbar {
+  display: none;
+}
+
+.css-5wchs2-MuiDateCalendar-root {
+  margin: 0 !important;
+  width: 100% !important;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.css-1pv2de5-MuiDayCalendar-weekContainer {
+  justify-content: space-between !important;
+}
+
+.css-1rl1vrc-MuiDayCalendar-header {
+  justify-content: space-between !important;
+}
+
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root {
+  font-weight: 500 !important;
+  font-family: '__Poppins_51684b' !important;
+  font-size: 12px !important;
+}
+
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+  background-color: #044054 !important;
+}
+
+.css-1xiumhb-MuiPickersLayout-root .MuiPickersLayout-actionBar {
+  display: none;
+}
+
+.css-xp4e7m-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+  border: solid 1px #D9D9D9 !important;
+}
+
+.css-1bsiu4i-MuiButtonBase-root-MuiIconButton-root-MuiPickersArrowSwitcher-button {
+  border: solid 1px #D9D9D9 !important;
+}
+
+.css-15umtxl-MuiPickersArrowSwitcher-root {
+  column-gap: 10px;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm):hover {
+  background-color: rgb(214, 5, 5) !important;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background: #144A6C !important;
+  border-color: #144A6C !important;
+}
+
+.complete {
+  border: solid 1px #B7EFAB;
+  background-color: #F8FFF8;
+  border-radius: 4px;
+  padding: 4px 16px 4px 16px;
+  text-align: center;
+  color: #177606;
+
+}
+
+.fc .fc-button-group {
+  /* display: none !important; */
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: transparent !important;
+}
+
+.fc-scrollgrid-section .fc-scrollgrid-section-body {
+  background-color: white !important;
+}
+
+.fc .fc-timegrid-col.fc-day-today {
+  background-color: white !important;
+}
+
+.fc-scrollgrid-section .fc-scrollgrid-section-body {
+  display: none !important;
+}
+
+.fc-timegrid-divider .fc-cell-shaded {
+  height: 0px !important;
+}
+
+.fc-scrollgrid-sync-table {
+  display: none !important;
+}
+
+.fc-v-event {
+  background-color: #f8fcfc !important;
+  border-left: 5px solid #629297 !important;
+  color: #629297 !important;
+  font-size: 20px !important;
+  border: 0px 0px 0px 5px !important;
+  padding: 10px;
+
+}
+
+.fc-v-event .fc-event-time {
+  font-size: 14px;
+  color: #629297 !important;
+}
+
+.fc-event-title {
+  color: #629297 !important;
+}
+
+.fc-dayGridMonth-button {
+  display: none !important;
+}
+
+.fc-timeGridWeek-button {
+  display: none !important;
+}
+
+.fc-timeGridDay-button {
+  display: none !important;
+}
+
+.fc .fc-scrollgrid {
+  border: solid 1px #F2F4F7;
+  border-radius: 8px;
+  padding: 17px;
+}
+
+.fc .fc-timegrid-slot {
+  border: solid 1px #F2F4F7 !important;
+}
+
+.fc .fc-timegrid-axis-cushion,
+.fc .fc-timegrid-slot-label-cushion {
+  padding: 19px 4px !important;
+  color: #667085;
+  font-weight: 300;
+  font-size: 13px;
+  font-family: '__Poppins_51684b';
+}
+
+.planes{
+  width: 100%;
+}
+hr{
+  background-color: #E8F2F2!important;
+}
+.rdrDateRangePickerWrapper.rdrDefinedRangesWrapper {
+    display: none !important;
+}
+.rdrDefinedRangesWrapper {
+    display: none;
+}
+.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{
+  background-color: #144A6C!important;
+}
+:disabled{
+  background-color: #F5F5F5!important;
+  color: #000!important;
+}
+.truncate{
+  color: #667085!important;
+}
+.rdrCalendarWrapper{
+      border: solid 1px #ccc;
+    border-radius: 12px;
+}
+/* Hide number input arrows/spinners in Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide number input arrows/spinners in Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

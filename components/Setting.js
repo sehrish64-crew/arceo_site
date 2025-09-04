@@ -97,7 +97,7 @@ export default function Setting() {
   const tabs = [
     "General",
     "Security",
-    "Sessions",
+    "Availability",
     "External Doctors",
     "ISR Taxes",
     "Unit & Cost Type"
@@ -470,7 +470,7 @@ export default function Setting() {
               <div className="flex-1 overflow-auto  bg-[#CEE5E433]">
                 {/* Desktop Table */}
                 <div className="">
-                  <div className="card h-[calc(100vh-235px)] flex flex-col">
+                  <div className="card flex flex-col">
                     <div className="card-body flex-1 flex flex-col overflow-hidden">
                       <SessionForm />
                     </div>
